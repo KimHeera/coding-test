@@ -5,8 +5,12 @@
 
 using namespace std;
 
-int main()
+void main()
 {
+    int inputSize = 0;
 
-    return 0;
+    cin >> inputSize;
+    for (int i = 0; i < inputSize; i++)
+    {
+    }
 }
