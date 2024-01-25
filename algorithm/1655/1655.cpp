@@ -4,6 +4,10 @@
 #include <queue>
 
 using namespace std;
+/*
+min heap을 사용하지 않는다면 push 할 때 음수를 곱해서 넣으면 됨. pop 할 때는 음수를 곱하면 됨.
+1초 = 1억(10**7)
+*/
 
 priority_queue<int> maxHeap;
 priority_queue<int, vector<int>, greater<int>> minHeap;
