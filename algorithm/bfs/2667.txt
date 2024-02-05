@@ -1,0 +1,18 @@
+단지번호붙이기
+
+bfs로 풀기
+map 용 배열
+visited bool 배열
+결과 출력용 vector
++ 블로그에서 본 코드를 간단하게 짜기 위한 dx, dy 배열.
+  -> x, y값에 미리 초기화해 둔 dx[i], dy[i]를 더하면 
+  if문을 4번 쓰는 대신 for문을 한 번 쓰면 (x, y)의 상하좌우 탐색 가능
+
+main
+지도의 크기 N을 입력받음.
+그리고 지도를 입력받을 때, map 용 배열에 저장. (이중 for문)
+지도 탐색 시작 (이중 for문)
+visited 배열의 원소가 false고, map 배열의 원소가 1이면 bfs 함수로 탐색 start!
+결과 vector를 sort한 뒤, 출력
+
+bfs
