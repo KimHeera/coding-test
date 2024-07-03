@@ -8,6 +8,7 @@ Last Changed: 2024.07.03
 
 #include <iostream>
 #include <string.h>
+#include <vector>
 using namespace std;
 
 int main(){
@@ -17,7 +18,7 @@ int main(){
     int N, M, result = 0;
     cin >> N >> M;
 
-    int s[N], c[M];
+    vector<int> s(N, 0), c(M, 0);
 
     for (int i = 0; M; i++){
         c[i] = 0;
