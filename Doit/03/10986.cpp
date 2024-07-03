@@ -15,10 +15,11 @@ int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int N, M, result = 0;
+    int N, M;
+    long result = 0;
     cin >> N >> M;
 
-    vector<int> s(N, 0), c(M, 0);
+    vector<long> s(N, 0), c(M, 0);
     
     int A;
     cin >> s[0];
