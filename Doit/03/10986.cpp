@@ -21,17 +21,18 @@ int main(){
 
     vector<long> s(N, 0), c(M, 0);
     
-    int A;
     cin >> s[0];
 
     for (int i = 1; i < N; i++)
     {
+        int A;
         cin >> A;
         s[i] = s[i - 1] + A;
     }
 
-    for(int num : s){
-        int tmp = num % M;
+    for (int i = 0; i < N; i++)
+    {
+        int tmp = s[i] % M;
 
         if(tmp == 0)
             result++;
