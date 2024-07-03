@@ -19,15 +19,9 @@ int main(){
     cin >> N >> M;
 
     vector<int> s(N, 0), c(M, 0);
-
-    for (int i = 0; M; i++){
-        c[i] = 0;
-    }
     
     int A;
-
-    cin >> A;
-    s[0] = A;
+    cin >> s[0];
 
     for (int i = 1; i < N; i++)
     {
@@ -48,5 +42,5 @@ int main(){
             result += (c[i] * (c[i] - 1) / 2);
     }
 
-    cout << result;
+    cout << result << endl;
 }
