@@ -47,7 +47,7 @@ int main(){
             mystack.pop();
 
             if(n > nowNum){
-                cout << "No";
+                cout << "NO";
                 flag = false;
                 break;
             }
