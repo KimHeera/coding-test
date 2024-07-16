@@ -57,6 +57,7 @@
         "variant": "cpp",
         "algorithm": "cpp",
         "list": "cpp",
-        "execution": "cpp"
+        "execution": "cpp",
+        "stack": "cpp"
     }
 }
