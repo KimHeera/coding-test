@@ -8,6 +8,7 @@ Last Changed: 2024.07.22
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int main(){
@@ -17,31 +18,21 @@ int main(){
 
     int N;
     cin >> N;
-    vector<int> array(N, 0);
+    vector<pair<int, int>> array(N);
 
     for (int i = 0; i < N; i++){
-        cin >> array[i];
+        cin >> array[i].first;
+        array[i].second = i;
     }
 
-    int result = 1;
-    for (int i = 0; i < N - 1; i++)
-    {
-        bool flag = false;
+    sort(array.begin(), array.end());
 
-        for (int j = 0; j < N - 1 - i; j++)
-        {
-            if(array[j] > array[j+1]){
-                flag = true;
-                int tmp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = tmp;
-            }
-        }
-
-        if(flag){
-            result++;
+    int max = 0;
+    for (int i = 0; i < N; i++){
+        if(max < array[i].second - i){
+            max = array[i].second - i;
         }
     }
 
-    cout << result << endl;
+    cout << max + 1 << endl;
 }
