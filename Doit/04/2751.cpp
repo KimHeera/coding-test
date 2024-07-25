@@ -37,7 +37,7 @@ int main(){
 }
 
 void mergeSort(int start, int end){
-    if(end - start < -1)
+    if(end - start < 1)
         return;
 
     int mid = start + (end - start) / 2;
