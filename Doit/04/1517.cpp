@@ -13,7 +13,7 @@ using namespace std;
 void mergeSort(int start, int end);
 vector<int> p;
 vector<int> tmp;
-int result;
+long result;
 
 int main(){
     ios::sync_with_stdio(false);
