@@ -74,6 +74,6 @@ void mergeSort(int start, int end){
     while(index2 <= end){
         p[resultIndex] = tmp[index2];
         resultIndex++;
-        index1++;
+        index2++;
     }
 }
