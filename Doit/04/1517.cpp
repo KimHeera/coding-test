@@ -11,8 +11,8 @@ Last Changed: 2024.07.25
 using namespace std;
 
 void mergeSort(int start, int end);
-vector<pair<int, int>> p;
-vector<pair<int, int>> tmp;
+vector<int> p;
+vector<int> tmp;
 int result;
 
 int main(){
@@ -23,12 +23,11 @@ int main(){
     int N;
     cin >> N;
 
-    p = vector<pair<int, int>>(N+1);
-    tmp = vector<pair<int, int>>(N+1);
+    p = vector<int>(N+1);
+    tmp = vector<int>(N+1);
 
     for (int i = 1; i < N + 1; i++){
-        cin >> p[i].first;
-        p[i].second = i;
+        cin >> p[i];
     }
 
     result = 0;
@@ -53,7 +52,7 @@ void mergeSort(int start, int end){
     int index1 = start;
     int index2 = mid + 1;
     while(index1 <= mid && index2 <= end){
-        if(tmp[index1].first > tmp[index2].first){
+        if(tmp[index1] > tmp[index2]){
             p[resultIndex] = tmp[index2];
             result += index2 - resultIndex;
             resultIndex++;
