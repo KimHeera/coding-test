@@ -23,8 +23,8 @@ int main(){
     int N;
     cin >> N;
 
-    p = vector<pair<int, int>>(N);
-    tmp = vector<pair<int, int>>(N);
+    p = vector<pair<int, int>>(N+1);
+    tmp = vector<pair<int, int>>(N+1);
 
     for (int i = 1; i < N + 1; i++){
         cin >> p[i].first;
