@@ -11,8 +11,8 @@ Last Changed: 2024.07.29
 using namespace std;
 
 void BFS(int i, int j);
-static int dx[] = {0, 1, 0, -1};
-static int dy[] = {1, 0, -1, 0};
+static int dx[] = {1, 0, -1, 0};
+static int dy[] = {0, -1, 0, 1};
 int P[101][101];
 bool visited[101][101] = {false};
 int N, M;
@@ -29,7 +29,7 @@ int main()
         cin >> s;
 
         for (int j = 0; j < M; j++){
-            P[i][j] = s[j] + '0';
+            P[i][j] = s[j] - '0';
         }
     }
 
