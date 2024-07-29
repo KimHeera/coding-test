@@ -8,6 +8,8 @@ Last Changed: 2024.07.29
 
 #include <iostream>
 #include <queue>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 typedef pair<int, int> edge;
@@ -25,8 +27,10 @@ int main(){
 
     int N;
     cin >> N;
+    P.resize(N + 1);
 
-    for (int i = 0; i < N; i++){
+    for (int i = 0; i < N; i++)
+    {
         int s;
         cin >> s;
 
