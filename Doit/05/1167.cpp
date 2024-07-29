@@ -42,7 +42,7 @@ int main(){
                 break;
 
             cin >> v;
-            P[s].push_back(make_pair(e, v));
+            P[s].push_back(edge(e, v));
         }
     }
 
@@ -51,21 +51,17 @@ int main(){
     BFS(1);
 
     int max = 1;
-    for (int i = 2; i < myDistance.size(); i++){
+    for (int i = 2; i <= N; i++){
         if(myDistance[max] < myDistance[i])
             max = i;
     }
 
     fill(visited.begin(), visited.end(), false);
+    fill(myDistance.begin(), myDistance.end(), 0);
     BFS(max);
+    sort(myDistance.begin(), myDistance.end());
 
-    max = myDistance[0];
-    for (int i = 1; i < myDistance.size(); i++){
-        if(max < myDistance[i])
-            max = myDistance[i];
-    }
-
-    cout << max << endl;
+    cout << myDistance[N] << endl;
 }
 
 void BFS(int v){
@@ -75,6 +71,7 @@ void BFS(int v){
 
     while(!myQ.empty()){
         int now = myQ.front();
+        myQ.pop();
 
         for (int i = 0; i < P[now].size(); i++){
             if(!visited[P[now][i].first]){
