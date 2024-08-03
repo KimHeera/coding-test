@@ -7,8 +7,6 @@ Last Changed: 2024.08.03
 */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 int main(){
@@ -16,8 +14,27 @@ int main(){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int N, k;
+    long N, k;
     cin >> N >> k;
+    long result;
 
-    
+    long start = 1, end = k;
+
+    while(start <= end){
+        long mid = (start + end) / 2;
+        long cnt = 0;
+
+        for (int i = 1; i <= N; i++){
+            cnt += min(mid / i, N);
+        }
+
+        if(cnt < k)
+            start = mid + 1;
+        else{
+            end = mid - 1;
+            result = mid;
+        }
+    }
+
+    cout << result << endl;
 }
