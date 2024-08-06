@@ -21,8 +21,8 @@ int main(){
 
     vector<pair<int, int>> P(N);
     for (int i = 0; i < N; i++){
-        cin >> P[i].first;
         cin >> P[i].second;
+        cin >> P[i].first;
     }
 
     sort(P.begin(), P.end());
@@ -32,11 +32,11 @@ int main(){
 
     for (int i = 0; i < N; i++)
     {
-        if(end <= P[i].first){
-            end = P[i].second;
+        if(end <= P[i].second){
+            end = P[i].first;
             count++;
         }
     }
 
-    cout << count+1 << endl;
+    cout << count << endl;
 }
