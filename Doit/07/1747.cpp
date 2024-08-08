@@ -18,20 +18,21 @@ int main(){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int N;
+    long N;
     cin >> N;
 
     long A[10000001];
 
-    for (int i = 2; i < 10000001; i++)
+    for (int i = 2; i < 10000001; i++){
         A[i] = i;
+    }
 
     for (int i = 2; i <= sqrt(10000001); i++){
         if(A[i] == 0)
             continue;
 
         for (int j = i + i; j < 10000001; j += i)
-            A[i] = 0;
+            A[j] = 0;
     }
 
     int i = N;
@@ -48,11 +49,13 @@ int main(){
 
 bool isPalindrome(int num){
     string input = to_string(num);
+    // char const *tmp = input.c_str(); //문자열을 배열로 변환
+
     int start = 0;
     int end = input.size() - 1;
 
     while(start < end){
-        if(input[start] != input[end])
+        if (input[start] != input[end])
             return false;
 
         start++;
