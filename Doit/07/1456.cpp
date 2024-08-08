@@ -7,7 +7,6 @@ Last Changed: 2024.08.08
 */
 
 #include <iostream>
-#include <vector>
 #include <cmath>
 using namespace std;
 
@@ -19,21 +18,23 @@ int main(){
     long A, B;
     cin >> A >> B;
 
-    vector<long> P(B + 1);
-    for (int i = 2; i <= B; i++){
+    long P[10000001];
+    for (int i = 2; i < 10000001; i++)
+    {
         P[i] = i;
     }
 
-    for (int i = 2; i <= sqrt(B); i++){
+    for (int i = 2; i <= sqrt(10000001); i++)
+    {
         if(P[i] == 0)
             continue;
 
-        for (int j = i + i; j <= B; j += i)
+        for (int j = i + i; j < 10000001; j += i)
             P[j] = 0;
     }
 
     int count = 0;
-    for (int i = 2; i <= B; i++)
+    for (int i = 2; i < 10000001; i++)
     {
         if(P[i] != 0){
             long tmp = P[i];
