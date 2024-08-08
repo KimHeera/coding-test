@@ -20,15 +20,15 @@ int main(){
 
     long result = n;
     for (long i = 2; i <= sqrt(n); i++){
-        if(n%i == 0){
-            result = result - result / i;
-            while(n%i == 0)
+        if(n%i == 0){ //i가 소수인지 확인
+            result = result - result / i; //결괏값 업데이트
+            while(n%i == 0) //해당 소인수 지우기(2^7*11이라면 2^7을 없애고 11만 남김)
                 n /= i;
         }
     }
 
-    if(n>1)
-        result = result - result / n;
+    if(n>1) //아직 소인수 구성이 남아있는 경우
+        result = result - result / n; //반복문에서 제곱근까지만 탐색했기 때문에 1개의 소인수가 누락되는 케이스
 
     cout << result << endl;
 }
