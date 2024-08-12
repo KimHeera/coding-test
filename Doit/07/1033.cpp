@@ -14,9 +14,9 @@ using namespace std;
 int N;
 vector<tuple<int, int, int>> P[10];
 bool visited[10];
-int D[10];
+long D[10];
 
-long gcd(int a, int b);
+long gcd(long a, long b);
 void dfs(int index);
 
 int main(){
@@ -25,7 +25,7 @@ int main(){
     cout.tie(NULL);
 
     cin >> N;
-    int lcm = 1;
+    long lcm = 1;
 
     for (int i = 0; i < N - 1; i++){
         int a, b, p, q;
@@ -33,7 +33,7 @@ int main(){
 
         P[a].push_back(make_tuple(b, p, q));
         P[b].push_back(make_tuple(a, p, q));
-        lcm *= a * b / gcd(a, b);
+        lcm *= (p * q / gcd(p, q));
     }
 
     D[0] = lcm;
@@ -49,7 +49,7 @@ int main(){
     }
 }
 
-long gcd(int a, int b){
+long gcd(long a, long b){
     if(b == 0)
         return a;
     
@@ -63,7 +63,7 @@ void dfs(int index){
     for (int i = 0; i < N; i++){
         int next = get<0>(P[index][i]);
         if(!visited[next]){
-            D[next] = D[index] * get<2>(P[index][i]);
+            D[next] = D[index] * get<2>(P[index][i]) / get<1>(P[index][i]);
             dfs(next);
         }
     }
