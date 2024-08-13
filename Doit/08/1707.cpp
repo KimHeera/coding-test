@@ -21,10 +21,11 @@ int main(){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int K, V, E;
+    int K;
     cin >> K;
 
     while(K--){
+        int V, E;
         cin >> V >> E;
         P.resize(V + 1);
         visited.resize(V + 1);
@@ -39,7 +40,7 @@ int main(){
             P[e].push_back(s);
         }
 
-        for (int i = 1; i == V; i++){
+        for (int i = 1; i <= V; i++){
             if(isEven)
                 dfs(i);
             else    
