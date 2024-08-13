@@ -3,7 +3,7 @@ BOJ 1325.
 Author: Heera Kim
 E-mail Address: heeerala.a@gmail.com
 C++
-Last Changed: 2024.08.12
+Last Changed: 2024.08.13
 */
 
 #include <iostream>
