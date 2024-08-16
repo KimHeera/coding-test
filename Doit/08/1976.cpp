@@ -20,7 +20,7 @@ int main(){
     cout.tie(NULL);
 
     int N, M;
-    cin >> N;
+    cin >> N >> M;
 
     P.resize(N + 1);
     for (int i = 1; i <= N; i++)
