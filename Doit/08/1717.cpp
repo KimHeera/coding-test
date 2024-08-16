@@ -36,8 +36,6 @@ int main(){
             unionCal(a, b);
         }
         else{
-            findCal(a);
-
             if(isSame(a, b))
                 cout << "YES" << "\n";
             else
