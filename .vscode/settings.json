@@ -59,5 +59,8 @@
         "list": "cpp",
         "execution": "cpp",
         "stack": "cpp"
-    }
+    },
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.preferredHighContrastColorTheme": "Default High Contrast"
 }
