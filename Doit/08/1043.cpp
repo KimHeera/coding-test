@@ -41,11 +41,12 @@ int main()
         {
             int input;
             cin >> input;
-            party[i].push_back(input);
+            party[j].push_back(input);
         }
     }
 
-    for (int i = 0; i < M; i++){
+    for (int i = 0; i < M; i++)
+    {
         int first = party[i][0];
 
         for (int j = 1; j < party[i].size(); j++){
@@ -68,7 +69,7 @@ int main()
         if(flag)
             result++;
     }
-
+    
     cout << result << "\n";
 }
 
