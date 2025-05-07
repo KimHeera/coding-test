@@ -3,25 +3,25 @@ BOJ 1753.
 Author: Heera Kim
 E-mail Address: heeerala.a@gmail.com
 C++
-Last Changed: 2025.04.24
+Last Changed: 2025.05.07
 */
 
 #include <iostream>
-#include <cstring>
 #include <vector>
 #include <queue>
 using namespace std;
 
-#define INF 1000000
-
-vector<pair<int, int> > arr[20001];
-int dp[20001];
+typedef pair<int, int> edge;
+vector<vector<edge> > arr; //그래프 정보 저장
+vector<int> dist; //최단 거리 저장
+vector<bool> visited; //노드 방문 여부
+priority_queue<edge, vector<edge>, greater<edge> > q;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    memset(dp, INF, sizeof(dp));
+    memset(dp, INT_MAX, sizeof(dp));
 
     int V, E, K;
     cin >> V >> E >> K;
