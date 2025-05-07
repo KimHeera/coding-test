@@ -9,6 +9,7 @@ Last Changed: 2025.05.07
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <limits.h>
 using namespace std;
 
 typedef pair<int, int> edge;
@@ -21,10 +22,15 @@ int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    memset(dp, INT_MAX, sizeof(dp));
 
     int V, E, K;
     cin >> V >> E >> K;
+
+    dist.resize(V + 1);
+    fill(dist.begin(), dist.end(), INT_MAX);
+    visited.resize(V + 1);
+    fill(visited.begin(), visited.end(), false);
+    arr.resize(V + 1);
 
     int u, v, w;
     for (int i = 0; i < E; i++){
@@ -32,38 +38,32 @@ int main(){
         arr[u].push_back(make_pair(v, w));
     }
 
-    dp[K] = 0;
-    priority_queue<pair<int, int> > pq;
-    pq.push(make_pair(0, K));
+    dist[K] = 0;
+    q.push(make_pair(0, K));
 
-    while(!pq.empty()){
-        int current = pq.top().second;
+    while(!q.empty()){
+        edge nowNode = q.top();
 
-        int start_to_current_distance = -pq.top().first;
+        q.pop();
 
-        pq.pop();
+        int now = nowNode.second;
+        if (!visited[now]){
+            visited[now] = true;
 
-        if (dp[current] < start_to_current_distance)
-            continue;
-
-        for (int i = 0; i < arr[current].size(); ++i){
-            int next = arr[current][i].first;
-            int start_to_next_distance = start_to_current_distance + arr[current][i].second;
-
-            if (dp[next] > start_to_next_distance){
-                dp[next] = start_to_next_distance;
-
-                pq.push(make_pair(-start_to_next_distance, next));
+            for(edge n : arr[now]){
+                if (dist[n.first] > dist[now] + n.second){
+                    dist[n.first] = dist[now] + n.second;
+                    q.push(make_pair(dist[n.first], n.first));
+                }
             }
         }
     }
 
-
     for (int i = 1; i < V + 1; ++i){
-        if (dp[i] > INF)
+        if (dist[i] == INT_MAX)
             cout << "INF" << "\n";
         else
-            cout << dp[i] << "\n";
+            cout << dist[i] << "\n";
         
     }
 
