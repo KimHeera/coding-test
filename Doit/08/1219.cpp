@@ -3,7 +3,7 @@ BOJ 1219.
 Author: Heera Kim
 E-mail Address: heeerala.a@gmail.com
 C++
-Last Changed: 2025.05.29
+Last Changed: 2025.05.30
 */
 
 #include <iostream>
@@ -40,37 +40,34 @@ int main(){
         cin >> wage[i];
     }
 
-    dist[S] = 0;
-    for (int i = 1; i < N; i++){
+    dist[S] = wage[S];
+    for (int i = 0; i <= N + 50; i++){
         for (int j = 0; j < M; j++){
-            edge nowEdge = edges[i];
+            edge nowEdge = edges[j];
 
             int start = get<0>(nowEdge);
             int end = get<1>(nowEdge);
             int money = get<2>(nowEdge);
 
-            if (dist[start] != LONG_MAX && dist[end] < dist[start] - money + wage[end])
+            // if (dist[start] != LONG_MAX && dist[end] < dist[start] - money + wage[end])
+            //     dist[end] = dist[start] - money + wage[end];
+            if (dist[start] == LONG_MIN)
+                continue;
+            else if (dist[start] == LONG_MAX)
+                dist[end] = LONG_MAX;
+            else if (dist[end] < dist[start] - money + wage[end]){
                 dist[end] = dist[start] - money + wage[end];
+
+                if (i >= N + 1)
+                    dist[end] = LONG_MAX;
+            }
         }
     }
 
-    bool check = false;
-    for (int i = 0; i < M; i++)
-    {
-        edge nowEdge = edges[i];
-
-        int start = get<0>(nowEdge);
-        int end = get<1>(nowEdge);
-        int money = get<2>(nowEdge);
-
-        if (dist[start] != LONG_MAX && i == E && dist[end] < dist[start] - money + wage[end])
-            check = true;
-    }
-
-    if (check)
-        cout << "gg";
-    else if (dist[E] == LONG_MAX)
+    if (dist[E] == LONG_MAX)
         cout << "Gee";
+    else if (dist[E] == LONG_MIN)
+        cout << "gg";
     else
         cout << dist[E];
 }
