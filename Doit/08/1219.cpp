@@ -26,7 +26,7 @@ int main(){
     cin >> N >> S >> E >> M;
 
     dist.resize(N + 1);
-    fill(dist.begin(), dist.end(), LONG_MAX);
+    fill(dist.begin(), dist.end(), LONG_MIN);
     wage.resize(N + 1);
 
     for (int i = 0; i < M; i++){
@@ -49,8 +49,8 @@ int main(){
             int end = get<1>(nowEdge);
             int money = get<2>(nowEdge);
 
-            if (dist[start] != LONG_MAX && dist[end] > dist[start] + money)
-                dist[end] = dist[start] + money;
+            if (dist[start] != LONG_MAX && dist[end] < dist[start] - money + wage[end])
+                dist[end] = dist[start] - money + wage[end];
         }
     }
 
@@ -63,7 +63,7 @@ int main(){
         int end = get<1>(nowEdge);
         int money = get<2>(nowEdge);
 
-        if (dist[start] != LONG_MAX && i == E && dist[end] > dist[start] + money)
+        if (dist[start] != LONG_MAX && i == E && dist[end] < dist[start] - money + wage[end])
             check = true;
     }
 
