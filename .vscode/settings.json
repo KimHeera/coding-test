@@ -59,7 +59,8 @@
         "list": "cpp",
         "execution": "cpp",
         "stack": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "random": "cpp"
     },
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.preferredDarkColorTheme": "Default Dark Modern",
