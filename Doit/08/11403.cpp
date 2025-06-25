@@ -12,7 +12,6 @@ Last Changed: 2025.06.10
 using namespace std;
 
 vector<vector<int> > edges;
-vector<int> visited;
 
 int main(){
     ios::sync_with_stdio(false);
@@ -23,7 +22,6 @@ int main(){
     cin >> n;
 
     edges.resize(n + 1);
-    visited.resize(n + 1);
 
     for (int i = 1; i <= n; i++){
         edges[i].resize(n + 1);
