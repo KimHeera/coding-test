@@ -1,5 +1,5 @@
 /*
-BOJ 11404.
+BOJ 1389.
 Author: Heera Kim
 E-mail Address: heeerala.a@gmail.com
 C++
